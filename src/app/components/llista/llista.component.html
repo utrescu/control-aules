@@ -1,0 +1,32 @@
+<div class="row">
+    <h3>Aules</h3>
+    <hr>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="message != null">
+    {{message}}
+</div>
+
+<div class="row" *ngIf="message == null">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Aula</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let aula of aules; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ aula }}</td>
+                <td>
+                    <button (click)="veureClasse(aula)" class="btn btn-primary btn-outline-primary">Veure</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="alert alert-info" role="alert" *ngIf="aules == null">
+        Sense classes
+    </div>
+</div>
